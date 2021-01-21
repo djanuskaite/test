@@ -5,8 +5,23 @@
 }
 
 body {
-	font-family: "montserrat", sans-serif;
-	background-color: #223343;
+	/* font-family: "montserrat", sans-serif;
+	background-color: #223343; */
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 1000% 1000%;
+	animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 header {
@@ -15,9 +30,13 @@ header {
 
 header h1 {
 	color: #fff;
-	font-size: 48px;
 	font-weight: 500;
 	text-align: center;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95,
+		0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+	letter-spacing: 5px;
+	font: 90px "MisoRegular";
+	margin-bottom: 20px;
 }
 
 main {
@@ -39,10 +58,10 @@ input {
 	outline: none;
 	background: none;
 
-	background-color: #eee;
-	border-radius: 8px;
+	background-color: rgb(220, 227, 255);
+	/* border-radius: 8px; */
 
-	color: #53565a;
+	color: #500d86;
 	font-size: 20px;
 	font-weight: 300;
 
@@ -74,18 +93,25 @@ input:focus {
 }
 
 .results .result h3 {
-	color: #fff;
+	color: rgb(78, 21, 131);
 	font-size: 20px;
 	font-weight: 600;
 	padding: 10px;
-	background: #445565;
+	background-image: linear-gradient(
+		to right,
+		#eea2a2 0%,
+		#bbc1bf 19%,
+		#57c6e1 42%,
+		#b49fda 79%,
+		#7ac5d8 100%
+	);
 	flex: 1 1 100%;
 	transition: 0.4s ease-out;
 }
 
 .results .result:hover h3 {
-	background: #fff;
-	color: #223343;
+	background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+	color: #fffbff;
 }
 
 .popup {
@@ -94,7 +120,7 @@ input:focus {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: #445565;
+	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 
 	overflow-y: scroll;
 }
@@ -106,7 +132,7 @@ input:focus {
 	margin: 0 auto;
 	padding: 25px;
 
-	color: #fff;
+	color: rgb(78, 21, 131);
 }
 
 .popup .content h2 {
@@ -148,7 +174,7 @@ input:focus {
 	font-size: 18px;
 	font-weight: 700;
 
-	background: #4484c4;
+	background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
 	color: #fff;
 	border-radius: 8px;
 	border: none;

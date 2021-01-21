@@ -1,55 +1,34 @@
-import React from 'react'
-import Nav from './Nav'
-import ItemPage from './ItemPage'
-import CartPage from './CartPage'
-import testItems from './data'
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
+import data from './data';
 
-class App extends React.Component {
-    // eslint-disable-next-line no-useless-constructor
-    constructor(props) {
-        super(props);
+// Components
+import Navigation from './components/Navigation';
+import Products from './components/Products';
+import ShoppingCart from './components/ShoppingCart';
 
-        this.state = {
-            activeTab: 0,
-            cart: []
-        };
+function App() {
+	const [products] = useState(data);
+	const [cart, setCart] = useState([]);
 
-        this.handleTabChange = this.handleTabChange.bind(this);
-        this.onAddToCart = this.onAddToCart.bind(this);
-    }
+	const addItem = item => {
+		// add the given item to the cart
+	};
 
-    handleTabChange = (i) => {
-        this.setState({
-            activeTab: i
-        }
-        )
-    };
+	return (
+		<div className="App">
+			<Navigation cart={cart} />
 
-    onAddToCart(item) {
-        this.setState({
-            cart: [...this.state.cart, item]
-        });
-        alert("Added")
-    }
+			{/* Routes */}
+			<Route exact path="/">
+				<Products products={products} addItem={addItem} />
+			</Route>
 
-    renderContent() {
-        switch (this.state.activeTab) {
-            default:
-            case 0: return <ItemPage items={testItems} onAddToCart={this.onAddToCart} />;
-            case 1: return <CartPage CartItems={this.state.cart} />;
-        }
-    }
-
-    render() {
-        return (
-            <div className={"App"}>
-                <Nav activeTab={this.state.activeTab} handleTabChange={this.handleTabChange} />
-                <main className={"App-content"}>
-                    {this.renderContent()}
-                </main>
-            </div>
-        )
-    }
+			<Route path="/cart">
+				<ShoppingCart cart={cart} />
+			</Route>
+		</div>
+	);
 }
 
 export default App;

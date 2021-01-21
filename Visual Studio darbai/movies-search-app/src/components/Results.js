@@ -5,8 +5,8 @@ import Result from './Result'
 function Results({ results, openPopup }) {
     return (
         <section className="results">
-            {results.map(result => (
-                <Result key={result.imdbID} result={result} openPopup={openPopup} />   // subkomponentas komponente
+            {results.map(result => (                                                   // map. rezultatu masyvas, kuri pasikvieciam su funkcija?
+                <Result key={result.imdbID} result={result} openPopup={openPopup} />   // subkomponentas komponente ?
             ))}
         </section>
     )
