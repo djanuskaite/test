@@ -91,6 +91,7 @@ public class NewEntryActivity extends AppCompatActivity {
                 String timezone = String.valueOf(spinnerTimezone.getSelectedItem());
                 int population = Integer.parseInt(editTextPopulation.getText().toString());
 
+
                 editTextPopulation.setError(null);
                 if (Validation.isValidPopulation(population)){
                     // Sukuriamas korona objektas is GUI elementu.

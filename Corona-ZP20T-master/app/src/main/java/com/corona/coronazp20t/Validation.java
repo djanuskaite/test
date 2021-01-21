@@ -24,7 +24,6 @@ public class Validation {
     public static boolean isValidPopulation(String population){
         Pattern pattern=Pattern.compile(PASSWORD_NUMBER_PATTERN);//Kuriamas sablonas pagal musu stringa
         Matcher matcher=pattern.matcher(population);//Palyginamas sablonas su vartotojo ivestais duomenimis
-
         return matcher.find();//Grazina true jeigu atitinka, false priesingu atveju
     }
 
