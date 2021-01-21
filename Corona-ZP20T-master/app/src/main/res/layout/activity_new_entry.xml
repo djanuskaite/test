@@ -85,7 +85,8 @@
                 android:id="@+id/country_norway"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/new_entry_region_1" />
+                android:text="@string/new_entry_region_1"
+                android:checked="true"/>
 
             <CheckBox
                 android:id="@+id/country_sweden"
@@ -103,7 +104,6 @@
                 android:id="@+id/country_finland"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/new_entry_region_4" />
 
             <Space

@@ -19,13 +19,6 @@ public class Corona implements Serializable {
         this.timezone = timezone;
     }
 
-    public Corona(String name, String capital, String region, int population) {
-        this.name = name;
-        this.capital = capital;
-        this.region = region;
-        this.population = population;
-    }
-
     public String getName() {
         return name;
     }
@@ -71,7 +64,7 @@ public class Corona implements Serializable {
         return "Country{" +
                 "name='" + name + '\'' +
                 ", capital='" + capital + '\'' +
-
+                ", region='" + region + '\'' +
                 ", population=" + population +
                 ", timezone=" + timezone +
                 '}';

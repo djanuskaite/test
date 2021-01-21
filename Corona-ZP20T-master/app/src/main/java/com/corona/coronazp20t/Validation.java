@@ -21,9 +21,9 @@ public class Validation {
         return matcher.find(); //Gražina true jeigu atitinka, false priešingu atveju
     }
 
-    public static boolean isValidPopulation(String population){
+    public static boolean isValidPopulation(String number){
         Pattern pattern=Pattern.compile(PASSWORD_NUMBER_PATTERN);//Kuriamas sablonas pagal musu stringa
-        Matcher matcher=pattern.matcher(population);//Palyginamas sablonas su vartotojo ivestais duomenimis
+        Matcher matcher=pattern.matcher(number);//Palyginamas sablonas su vartotojo ivestais duomenimis
         return matcher.find();//Grazina true jeigu atitinka, false priesingu atveju
     }
 

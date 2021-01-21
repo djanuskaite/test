@@ -52,7 +52,7 @@ public class NewEntryActivity extends AppCompatActivity {
         // Adapteri idedame i musu spinneri.
         spinnerTimezone.setAdapter(dataAdapter);
 
-
+        final EditText editTextName = findViewById(R.id.country_input);
         final EditText editTextPopulation = findViewById(R.id.country_population);
 
 
@@ -60,8 +60,9 @@ public class NewEntryActivity extends AppCompatActivity {
 
 //        // Uzpildome elementus (Countries) informacija. ????????????????????????????
 
-        checkBoxNorway.setText(corona.getName());
+        checkBoxNorway.setText(corona.getRegion());
         button2.setText(String.valueOf(corona.getCapital()));
+        editTextName.setText(String.valueOf(corona.getName()));
         editTextPopulation.setText(String.valueOf(corona.getPopulation()));
 
 
@@ -71,38 +72,40 @@ public class NewEntryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String allCountries = "";
                 if (checkBoxNorway.isChecked()) {
-                    allCountries += checkBoxNorway.getText().toString() + ", ";
+                    allCountries += checkBoxNorway.getText().toString() + " ";
                 }
                 if (checkBoxSweden.isChecked()) {
-                    allCountries += checkBoxSweden.getText().toString() + ", ";
+                    allCountries += checkBoxSweden.getText().toString() + " ";
                 }
                 if (checkBoxDenmark.isChecked()) {
-                    allCountries += checkBoxDenmark.getText().toString() + ", ";
+                    allCountries += checkBoxDenmark.getText().toString() + " ";
                 }
                 if (checkBoxFinland.isChecked()) {
-                    allCountries += checkBoxFinland.getText().toString() + ", ";
+                    allCountries += checkBoxFinland.getText().toString() + " ";
                 }
 
 //                // get selected radio button from radioGroup
                 int selectedId = groupCapital.getCheckedRadioButtonId();
 //                // find the radiobutton by returned id
                 RadioButton selectedButton = (RadioButton) findViewById(selectedId);
+                String name = editTextName.getText().toString();
                 String capital = selectedButton.getText().toString();
                 String timezone = String.valueOf(spinnerTimezone.getSelectedItem());
-                int population = Integer.parseInt(editTextPopulation.getText().toString());
+                String population = editTextPopulation.getText().toString();
 
-
+                editTextName.setError(null);
                 editTextPopulation.setError(null);
                 if (Validation.isValidPopulation(population)){
                     // Sukuriamas korona objektas is GUI elementu.
 
-                    Corona corona = new Corona(allCountries, capital, timezone, population);
+                    Corona corona = new Corona(allCountries, name, capital, Integer.parseInt(population), timezone);
 
 //                    // Atvaizduojamas vartotojui objekto informacija.
                     Toast.makeText(
                             NewEntryActivity.this,
-                            "Country(-ies): " + corona.getName() + "\n " +
-                                    "Capital: " + corona.getCapital() + "\n " +
+                            "Country(-ies): " + corona.getCapital() + "\n " +
+                                    "Capital: " + corona.getRegion() + "\n " +
+                                    "Region: " + corona.getName() + "\n " +
                                     "Population: " + corona.getPopulation() + "\n " +
                                     "Timezone: " + corona.getTimezone(),
                             Toast.LENGTH_SHORT
